@@ -47,8 +47,6 @@ class MainActivity : AppCompatActivity() {
             setContentText(notificationData.body)
             setSmallIcon(R.drawable.ic_baseline_notifications_24)
             priority = NotificationCompat.PRIORITY_DEFAULT
-            setAutoCancel(false)
-            setOngoing(false)
             setStyle(NotificationCompat.BigTextStyle())
         }
 
