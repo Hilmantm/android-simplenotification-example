@@ -15,18 +15,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var incrementNotificationID = 0
+
         val buttonNotification = findViewById<Button>(R.id.btnNotification)
-        val notificationData = NotificationData(
-            notificationId = NOTIFICATION_CHAT,
-            channelId = NOTIFICATION_CHANNEL_ID,
-            channelName = "Chat Notification",
-            channelDescription = "Testing description for notification channel android",
-            ctx = applicationContext,
-            title = "Trigger",
-            body = "lorem ipsum dolor sit amet"
-        )
         buttonNotification.setOnClickListener {
+
+            // Update notification id jika ingin menampilkan notifikasi baru
+            // Apabila tidak di update maka notifikasi baru akan menimpa notifikasi lama
+            val notificationData = NotificationData(
+                notificationId = NOTIFICATION_CHAT,
+                channelId = NOTIFICATION_CHANNEL_ID,
+                channelName = "Chat Notification",
+                channelDescription = "Testing description for notification channel android",
+                ctx = applicationContext,
+                title = "Trigger $incrementNotificationID",
+                body = "lorem ipsum dolor sit amet $incrementNotificationID"
+            )
             showNotification(notificationData)
+            incrementNotificationID++
         }
 
     }
